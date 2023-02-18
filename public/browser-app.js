@@ -21,7 +21,7 @@ const deleteList = (listsID) => {
       singleBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         await axios.delete(
-          `http://localhost:3000/api/v1/lists/${listsID[index]}`
+          `https://to-do-list-6eom.onrender.com/api/v1/lists/${listsID[index]}`
         );
         fetchLists();
       });
@@ -39,7 +39,7 @@ const finishedList = (listsID, listsStatus) => {
         e.preventDefault();
 
         await axios.patch(
-          `http://localhost:3000/api/v1/lists/${listsID[index]}`,
+          `https://to-do-list-6eom.onrender.com/api/v1/lists/${listsID[index]}`,
           {
             status: !listsStatus[index],
           }
@@ -73,9 +73,12 @@ const doneEdit = (editingID) => {
   btnDone.addEventListener("click", async () => {
     const inputListName = document.querySelector(".input-list-name");
     const newName = inputListName.value;
-    await axios.patch(`http://localhost:3000/api/v1/lists/${editingID}`, {
-      name: newName,
-    });
+    await axios.patch(
+      `https://to-do-list-6eom.onrender.com/api/v1/lists/${editingID}`,
+      {
+        name: newName,
+      }
+    );
     isEditingName = false;
     editingID = "";
     fetchLists();
@@ -88,11 +91,13 @@ const fetchLists = async (query) => {
     let data;
     if (searching) {
       data = await axios.get(
-        `http://localhost:3000/api/v1/lists?search=${query}`
+        `https://to-do-list-6eom.onrender.com/api/v1/lists?search=${query}`
       );
       searching = false;
     } else {
-      data = await axios.get(`http://localhost:3000/api/v1/lists`);
+      data = await axios.get(
+        `https://to-do-list-6eom.onrender.com/api/v1/lists`
+      );
     }
     const lists = data.data.lists;
     if (lists.length > 0) {
@@ -148,7 +153,9 @@ btnAddDOM.addEventListener("click", async (e) => {
 
   const listName = inputAddDOM.value;
   try {
-    await axios.post("http://localhost:3000/api/v1/lists", { name: listName });
+    await axios.post("https://to-do-list-6eom.onrender.com/api/v1/lists", {
+      name: listName,
+    });
     fetchLists();
     inputAddDOM.value = "";
   } catch (err) {
