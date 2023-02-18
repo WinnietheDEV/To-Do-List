@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="input">
+        <div class="logo">
+          <span>TO-DO LIST</span>
+          <i class="fa-solid fa-list"></i>
+        </div>
+        <div class="form-container">
+          <form action="">
+            <div class="label-container">
+              <label for="list">add to list</label>
+            </div>
+            <input class="input-add" type="text" name="list" id="list" />
+            <button class="btn btn-add" type="submit">
+              <i class="far fa-plus-square"></i>
+            </button>
+          </form>
+          <form action="">
+            <div class="label-container">
+              <label for="search">search</label>
+            </div>
+            <input
+              type="text"
+              name="search"
+              method="POST"
+              id="search"
+              class="input-search"
+            />
+            <button class="btn btn-search" method="GET" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+      <section class="display"></section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./browser-app.js"></script>
+  </body>
+</html>
